@@ -16,7 +16,7 @@ public class ItemRepository {
         if(item.getId() == null)
             em.persist(item);
         else
-            em.merge(item);
+            em.merge(item); // merge 사용은 지양하자. (모든컬럼이 업데이트 되기 때문에 의도치 않게 null이 업데이트 될수 있다.
     }
 
     public Item findOne(Long id) {
