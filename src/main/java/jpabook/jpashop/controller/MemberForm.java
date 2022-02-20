@@ -11,6 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @RequiredArgsConstructor
 public class MemberForm {
+    private Long id;
 
     @NotEmpty(message = "회원이름은 필수입니다.")
     private String name;
@@ -20,6 +21,7 @@ public class MemberForm {
     private String zipcode;
 
     public MemberForm(Member memberEntity) {
+        this.id = memberEntity.getId();
         this.name = memberEntity.getName();
         this.city = memberEntity.getAddress().getCity();
         this.street = memberEntity.getAddress().getStreet();
